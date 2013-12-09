@@ -3,3 +3,5 @@ INPUT
 rtcached/*
 scripts/*
 *.log
+*/build
+*/dist

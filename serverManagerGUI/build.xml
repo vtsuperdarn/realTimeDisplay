@@ -74,10 +74,6 @@
 		<exec executable="scp">
                         <arg value="-r" />
 			<arg value="${dist.dir}/lib" />
-			<arg value="${dist.dir}/lib/rmiServer.jar" />
-			<arg value="${dist.dir}/lib/rmiMonitor.jar" />
-			<arg value="${dist.dir}/lib/rmiLogger.jar" />
-			<arg value="${dist.dir}/lib/rmiAppender.jar" />
 			<arg value="${dist.jar}" />
 			<arg value="${server.install.user}@${server.install.host}:${server.install.location}" />
 		</exec>

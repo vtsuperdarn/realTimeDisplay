@@ -136,11 +136,8 @@
 	<property file="../build/global.properties"/>
 	<target name="install" depends="jar">
 		<exec executable="scp">
-			<arg value="${dist.jar}" />
-			<arg value="${server.install.user}@${server.install.host}:${server.install.location}" />
-		</exec>
-		<exec executable="scp">
                         <arg value="-r" />
+			<arg value="${dist.jar}" />
 			<arg value="${dist.dir}/lib" />
 			<arg value="${server.install.user}@${server.install.host}:${server.install.location}" />
 		</exec>
