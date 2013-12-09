@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.7.0
+Created-By: 1.6.0_01-b06 (Sun Microsystems Inc.)
+Main-Class: .superdarn.fitDataViewers.NetFitViewer
+Class-Path: lib/fitData.jar lib/coords.jar lib/coords-superdarn.jar li
+ b/fitDataBeans.jar lib/dataServerInterface.jar lib/dataServletAPI.jar
+  lib/log4j-1.2.15.jar
+

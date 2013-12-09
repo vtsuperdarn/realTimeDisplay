@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jnlp spec="1.0+" codebase="${jnlp.codebase}" href="multiPanelDisplay/launch.jnlp">
+    <information>
+        <title>${APPLICATION.TITLE}</title>
+        <vendor>${APPLICATION.VENDOR}</vendor>
+        <description>master.jnlp from realtimeJNLP</description>
+        <description kind="short">${APPLICATION.DESC.SHORT}</description>
+        <homepage href="${APPLICATION.HOMEPAGE}"/>
+<!--${JNLP.ICONS}-->
+<!--${JNLP.OFFLINE.ALLOWED}-->
+    </information>
+<!--${JNLP.SECURITY}-->
+    <resources>
+<!--${JNLP.RESOURCES.RUNTIME}-->
+<!--${JNLP.RESOURCES.MAIN.JAR}-->
+<!--${JNLP.RESOURCES.JARS}-->
+    </resources>
+    <application-desc main-class="${jnlp.main.class}">
+<!--${JNLP.APPLICATION.ARGS}-->
+        <argument>PANEL_X=0,PANEL_Y=2700,PANEL_ICONIFIED=true</argument>
+        <argument>TYPE=fan,SITE=FalklandIslandsRadar,CHANNEL=A,SCALE=2.8,PARAMETER=velocity,gs=false,limit=500,X=1530,Y=1600,h=466,w=511</argument>
+        <argument>TYPE=fan,SITE=FalklandIslandsRadar,CHANNEL=A,SCALE=2.8,PARAMETER=power,gs=false,X=2042,Y=1600,h=466,w=511</argument>
+        <argument>TYPE=time,SITE=FalklandIslandsRadar,PARAMETER=velocity,gs=false,limit=500,CHANNEL=A,BEAM=6,OLDDATA=yes,x=1530,y=2066,h=330,w=1022</argument>
+        <argument>TYPE=fan,SITE=Pykkvibaer,CHANNEL=A,PARAMETER=velocity,X=500,Y=2404,h=466,w=511</argument>
+        <argument>TYPE=fan,SITE=Pykkvibaer,CHANNEL=A,PARAMETER=power,X=1012,Y=2404,h=466,w=511</argument>
+        <argument>TYPE=time,SITE=Pykkvibaer,PARAMETER=velocity,CHANNEL=A,BEAM=5,OLDDATA=yes,x=500,y=2870,h=330,w=1022</argument>
+        <argument>TYPE=fan,SITE=Hankasalmi,CHANNEL=A,PARAMETER=velocity,X=1530,Y=2404,h=466,w=511</argument>
+        <argument>TYPE=fan,SITE=Hankasalmi,CHANNEL=A,PARAMETER=power,X=2042,Y=2404,h=466,w=511</argument>
+        <argument>TYPE=time,SITE=Hankasalmi,PARAMETER=velocity,CHANNEL=A,BEAM=9,OLDDATA=yes,x=1530,y=2870,h=330,w=1022</argument>
+    </application-desc>
+</jnlp>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "http://java.sun.com/dtd/web-app_2_3.dtd">
+<web-app>
+  <display-name>Data server</display-name>
+  <description>
+     Servlet to provide real-time data from CUTLASS and SPEAR radars
+  </description>
+
+  <servlet>
+    <servlet-name>dataServer</servlet-name>
+    <servlet-class>uk.ac.le.sppg.superdarn.dataServer.FitRemoteServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  
+  <servlet>
+    <servlet-name>radarList</servlet-name>
+    <servlet-class>uk.ac.le.sppg.superdarn.dataServer.DataServletList</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+    <servlet>
+        <servlet-name>RealTimeDisplay</servlet-name>
+        <description>Starts a real-time display panel</description>
+        <servlet-class>uk.ac.le.sppg.superdarn.dataServer.RealTimeDisplay</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RealTimeMulti</servlet-name>
+        <description>Displays multiple real-time panels</description>
+        <servlet-class>uk.ac.le.sppg.superdarn.dataServer.RealTimeMulti</servlet-class>
+        <init-param>
+            <param-name>x_base</param-name>
+            <param-value>0</param-value>
+        </init-param>
+        <init-param>
+            <param-name>y_base</param-name>
+            <param-value>1600</param-value>
+        </init-param>
+        </servlet>
+    <servlet-mapping>
+    <servlet-name>dataServer</servlet-name>
+    <url-pattern>/dataServer</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>radarList</servlet-name>
+    <url-pattern>/radarList</url-pattern>
+  </servlet-mapping>
+
+
+    <servlet-mapping>
+        <servlet-name>RealTimeDisplay</servlet-name>
+        <url-pattern>/realTimeDisplay</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RealTimeMulti</servlet-name>
+        <url-pattern>/realTimeMulti</url-pattern>
+    </servlet-mapping>
+    </web-app>

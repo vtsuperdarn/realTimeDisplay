@@ -1,0 +1,19 @@
+8
+
+dir
+2
+svn+ssh://ion.le.ac.uk/home/nmw/develop/svn/colour/src/uk/ac/le/sppg
+svn+ssh://ion.le.ac.uk/home/nmw/develop/svn
+
+
+
+2009-07-29T10:37:09.964882Z
+2
+nmw
+
+
+svn:special svn:externals svn:needs-lock
+
+superdarn
+dir
+

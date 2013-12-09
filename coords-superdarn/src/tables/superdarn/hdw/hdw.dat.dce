@@ -1,0 +1,14 @@
+# SD_BEGIN> 
+# This file defines all the hardware parameters for all the radars
+# the format of the file is:
+# station_id, year, yr_sec, lat, long, altitude, boresite, bm_sep,
+#   vdir, atten, tdiff, phidiff, interfer_pos[3], rec_rise
+#
+#
+# This set of data is for Dome C East [NOT YET FINAL; 20100319 DAndre]
+# Updated 16 January 2013 - JWiid added interferometer location and 151ns time difference
+# Updated 27 January 2013, 05:35UT - JWiid corrected lat, long and altitude
+#
+#
+# 96 2999 25786801 -75.0  -123.0  3200.0 +115.0 -3.24 +1.0 10.0 -0.151 0.0 0.0 -90.0  0.0 100.0 7 75 16
+96 2999 25786801 -75.09  +123.35  3233.0 +115.0 -3.24 +1.0 10.0 -0.151 0.0 0.0 -90.0  0.0 100.0 7 75 16

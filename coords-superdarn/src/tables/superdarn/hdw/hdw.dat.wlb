@@ -1,0 +1,23 @@
+ # SD_BEGIN> 
+# This file defines all the hardware parameters for all the radars
+# the format of the file is:
+# station_id, year, yr_sec, lat, long, altitude, boresite, bm_sep,
+#   vdir, atten, tdiff, phidiff, interfer_pos[3], rec_rise
+#
+# This set of data is for Wallops Island
+#
+
+33 2005 26589600 +37.93  -75.47    50.0  +35.86 +1.62 +1.0 10.0 +0.4778 +1.0  +1.5 +100.0 +0.0 100.0 2 110 16
+
+33 2006 43200 +37.93  -75.47    50.0  +26.14 +1.62 +1.0 10.0 +0.4778 +1.0  +1.5 +100.0 +0.0 100.0 2 110 16
+
+33 2006 6205080 +37.93  -75.47    50.0  +26.14 +3.24 +1.0 10.0 +0.4778 +1.0  +1.5 +100.0 +0.0 100.0 2 110 16
+
+33 2999 31556736 +37.93  -75.47    50.0  -28.94 +3.24 +1.0 10.0 +0.4778 +1.0  +1.5 +100.0 +0.0 100.0 2 110 16
+
+
+
+
+
+
+

@@ -1,0 +1,76 @@
+8
+
+dir
+2
+svn+ssh://ion.le.ac.uk/home/nmw/develop/svn/colour/src/uk/ac/le/sppg/superdarn/colour
+svn+ssh://ion.le.ac.uk/home/nmw/develop/svn
+
+
+
+2009-07-29T10:37:09.964882Z
+2
+nmw
+
+
+svn:special svn:externals svn:needs-lock
+
+VelocityScaleTwo.java
+file
+
+
+
+
+2009-07-29T08:59:30.000000Z
+bf1a2b1ccb4ae205844cf3da9ba79403
+2009-07-29T10:37:09.964882Z
+2
+nmw
+
+LinearScale.java
+file
+
+
+
+
+2009-07-29T08:59:37.000000Z
+11b7f3b06764fcc51eff3732ba8aa83a
+2009-07-29T10:37:09.964882Z
+2
+nmw
+
+VelocityScale.java
+file
+
+
+
+
+2009-07-29T08:59:38.000000Z
+29b142431ead640d933ba1f2633f57fb
+2009-07-29T10:37:09.964882Z
+2
+nmw
+
+ColourScale.java
+file
+
+
+
+
+2009-07-29T08:59:34.000000Z
+befc239f36bc442f9418f3856b022c50
+2009-07-29T10:37:09.964882Z
+2
+nmw
+
+Legend.java
+file
+
+
+
+
+2009-07-29T08:59:36.000000Z
+441ee09fbaffb1814a0d05290af36e7e
+2009-07-29T10:37:09.964882Z
+2
+nmw
+

@@ -1,0 +1,49 @@
+8
+
+dir
+2
+svn+ssh://ion.le.ac.uk/home/nmw/develop/svn/colour
+svn+ssh://ion.le.ac.uk/home/nmw/develop/svn
+
+
+
+2009-07-29T10:37:09.964882Z
+2
+nmw
+has-props
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+89a382c1-d56f-0410-8c4b-8aab5e15cf37
+
+test
+dir
+
+nbproject
+dir
+
+src
+dir
+
+build.xml
+file
+
+
+
+
+2009-05-08T14:00:05.000000Z
+b9650be5bf5ee32412f2b595393b24fa
+2009-07-29T10:37:09.964882Z
+2
+nmw
+

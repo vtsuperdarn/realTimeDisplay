@@ -1,0 +1,10 @@
+log4j.rootLogger=DEBUG, rmi
+
+log4j.appender.rmi=uk.ac.le.sppg.general.rmiappender.RmiAppender
+log4j.appender.rmi.host=localhost
+log4j.appender.rmi.port=1099
+log4j.appender.rmi.layout=org.apache.log4j.PatternLayout
+
+# Pattern to output the caller's file name and line number.
+log4j.appender.rmi.layout.ConversionPattern=rmiServer:%d{yyyy-MMM-dd HH:mm:ss} [%c{3}] - %m%n
+

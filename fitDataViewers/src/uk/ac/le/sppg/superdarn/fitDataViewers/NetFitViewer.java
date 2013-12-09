@@ -1,0 +1,220 @@
+/*
+ * NetFitViewer.java
+ *
+ * Created on 13 February 2008, 15:05
+ */
+
+package uk.ac.le.sppg.superdarn.fitDataViewers;
+
+import java.io.IOException;
+import java.net.SocketTimeoutException;
+import java.util.List;
+import org.jdesktop.swingworker.SwingWorker;
+import uk.ac.le.sppg.superdarn.fitData.FitNetReader;
+import org.apache.log4j.Logger;
+import uk.ac.le.sppg.superdarn.fitData.NetFitData;
+
+/**
+ *
+ * @author  nigel
+ */
+public class NetFitViewer extends javax.swing.JFrame {
+    
+    static Logger logger = Logger.getLogger("NetFitViewer");
+     
+    static boolean runnable = true;
+    
+    static String server;
+    static int port;
+    
+    NetFitData fitCache = null;
+    
+    /** Creates new form NetFitViewer */
+    public NetFitViewer() {
+        initComponents();
+        
+        SwingWorker worker = new SwingWorker<String, NetFitData>() {
+            @Override
+            public String doInBackground() {
+                String status = "";
+                
+                FitNetReader reader = null;
+                while ( true ) {
+
+                    // if the reader isn't open, try to open it.
+
+                        if ( reader == null ) {
+                            try {
+                                reader = connectServer( server, port );
+                            } catch( java.net.UnknownHostException uhe ) {
+                                status = "Failed to connect to "+server;
+                                logger.error( status, uhe);
+                                break;
+                            } catch ( IOException ioe ) {
+                                logger.error( "Failed to connect to server: "+server, ioe );
+
+                                try {
+                                    Thread.sleep( 10000 );
+                                } catch ( InterruptedException ie ) {
+                                    status = "read interrupted ";
+                                    logger.info(status);
+                                    break;
+                                }
+
+                                continue;
+
+                            }
+                        }
+
+
+                    // read the next data record
+                    try {
+                        NetFitData fit = reader.next();
+
+                        if ( fit == null ) {
+                            logger.warn("Null data read");
+                            Thread.sleep(5000);
+                            continue;
+                        }
+                        else {
+                            logger.debug( "Read data for "+ fit.radarParms.date );
+                        }
+
+                        publish(fit);
+
+
+                    } catch ( SocketTimeoutException e) {
+                        logger.info( "new data thread: timeoout reading data " );
+                            if ( reader != null ) {
+                                try {
+                                    reader.close();
+                                } catch ( IOException e2 ) {}
+
+                                reader = null;
+                            }
+                    } catch ( IOException e ) {
+                        logger.error( "new data thread IOException ", e );
+                            if ( reader != null ) {
+                                try {
+                                    reader.close();
+                                } catch ( IOException e2 ) {}
+
+                                reader = null;
+                        }
+                    }
+
+                    catch ( Exception e ) {
+                        logger.error( "new data thread Exception ", e );
+                        e.printStackTrace();
+                        runnable = false;
+                    }
+
+                    catch( Error e ) {
+                        logger.error("Error in new data thread:", e);
+                        e.printStackTrace();
+                        runnable = false;
+
+                        //System.exit(-1);
+                    }
+                }
+                
+                return status;
+            }
+
+            protected void process(List<NetFitData> dataList) {
+                System.out.println("dataList size: "+dataList.size());
+                NetFitData data = dataList.get(dataList.size()-1);
+                if ( holdCheckBox.isSelected() ) {
+                    fitCache = data;
+                }
+                else {
+                    fitDataBean.setData(data);
+                }
+            }
+            
+            @Override
+            public void done() {
+                System.err.println("worker thread finished");
+            }
+        };
+        worker.execute();
+    }
+    
+    /** This method is called from within the constructor to
+     * initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is
+     * always regenerated by the Form Editor.
+     */
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        fitDataBean = new uk.ac.le.sppg.superdarn.fitDataBeans.FitDataBean();
+        holdCheckBox = new javax.swing.JCheckBox();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().add(fitDataBean, java.awt.BorderLayout.CENTER);
+
+        holdCheckBox.setText("Hold");
+        holdCheckBox.setActionCommand("hold");
+        holdCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                holdCheckBoxActionPerformed(evt);
+            }
+        });
+        getContentPane().add(holdCheckBox, java.awt.BorderLayout.SOUTH);
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void holdCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_holdCheckBoxActionPerformed
+        if ( ! holdCheckBox.isSelected() && fitCache != null ) {
+            fitDataBean.setData(fitCache);
+            fitCache = null;
+        }
+
+    }//GEN-LAST:event_holdCheckBoxActionPerformed
+    
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        if (args.length != 2) {
+            System.err.print("NetFitViewer requires 2 arguments,");
+            System.err.println(" the server and port number on which the data server is listening");
+            System.exit(1);
+        }
+        
+        server = args[0];
+        port = Integer.parseInt(args[1]);
+          
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new NetFitViewer().setVisible(true);
+            }
+        });
+        
+
+        logger.info( "new data thread no longer runnable ");
+        
+        
+    }
+    
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private static uk.ac.le.sppg.superdarn.fitDataBeans.FitDataBean fitDataBean;
+    private javax.swing.JCheckBox holdCheckBox;
+    // End of variables declaration//GEN-END:variables
+    
+    private static FitNetReader connectServer( String server, int port )
+    throws java.net.UnknownHostException, IOException {
+        FitNetReader fitReader = new FitNetReader( server, port, 300 );
+        
+        logger.info( "New data thread, attempting connection to "+server+":"+port );
+        fitReader.open();
+        
+        logger.info( "New data thread, opened connection to "+server+":"+port );
+        
+        return fitReader;
+    }
+    
+
+}

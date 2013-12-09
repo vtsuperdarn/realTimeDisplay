@@ -1,0 +1,5 @@
+installed/*
+INPUT
+rtcached/*
+scripts/*
+*.log
