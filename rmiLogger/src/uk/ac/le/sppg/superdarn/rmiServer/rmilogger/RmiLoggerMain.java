@@ -9,8 +9,6 @@
 
 package uk.ac.le.sppg.superdarn.rmiServer.rmilogger;
 
-import uk.ac.le.sppg.superdarn.rmiServer.rmilogger.RmiLoggerInterface;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;

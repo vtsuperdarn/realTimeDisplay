@@ -175,8 +175,7 @@ public class Manager {
             
             if ( args[0].equals("list") ) {
                 
-                // check the Monitor is running
-                
+                // print RMI server names (logger, monotor, sites)
                 String[] rmiServerNames = Naming.list("//localhost");
                 for(int i=0; i<rmiServerNames.length; i++) {
                     System.out.println(rmiServerNames[i]);
@@ -275,7 +274,30 @@ public class Manager {
     
     static void usage() {
         System.out.println("Usage:");
-        System.out.println("java Manager list|start|start site...|stop|stop site...|restart|restart site...");
+        System.out.println("java -jar serverManager.jar <action>");
+        System.out.println("");
+        System.out.println("    Where <action> is one of the following:");
+        System.out.println("        start [site]");
+        System.out.println("          starts the server manager.");
+        System.out.println("          site is a list of space separated radar site names to be started (defaults to all).");
+        System.out.println("");
+        System.out.println("        stop [site]");
+        System.out.println("          stops the server manager.");
+        System.out.println("          site is a list of space separated radar site names to be started (defaults to all).");
+        System.out.println("");
+        System.out.println("        restart [site]");
+        System.out.println("          restarts the server manager.");
+        System.out.println("          site is a list of space separated radar site names to be started (defaults to all).");
+        System.out.println("");
+        System.out.println("        list");
+        System.out.println("          prints RMI servers (monitor, logger, sites).");
+        System.out.println("");
+        System.out.println("        start_registry");
+        System.out.println("          starts the RMI registry.");
+        System.out.println("");
+        System.out.println("        stop_registry");
+        System.out.println("          stops the RMI registry (first step).");
+        System.out.println("");
     }
     
 //    private static RmiLoggerInterface checkLogger()

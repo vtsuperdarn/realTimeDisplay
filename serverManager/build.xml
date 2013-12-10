@@ -72,6 +72,7 @@
                         <arg value="-r" />
 			<arg value="${dist.dir}/lib" />
 			<arg value="${dist.jar}" />
+			<arg value="${dist.dir}/lib/rmiServerInterface.jar" />
 			<arg value="${dist.dir}/lib/rmiServer.jar" />
 			<arg value="${dist.dir}/lib/rmiMonitor.jar" />
 			<arg value="${dist.dir}/lib/rmiLogger.jar" />
