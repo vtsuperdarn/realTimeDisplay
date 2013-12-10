@@ -60,7 +60,7 @@ public class Server implements Runnable {
         
         this.site = site;
         this.properties = properties;
-        
+        System.out.println(runnable);
         // create a new thread which will execute the run() method.
         runnable = true;
         thread = new Thread(this, "superdarn.rmiServer.monitor."+site);

@@ -43,6 +43,12 @@ public class Monitor {
 
             String[] process = new String[] { javaHome+"/bin/java", 
                     "-server", "-jar", jarLocation+separator+"rmiMonitor.jar" };
+            
+            // Print the command
+//            for (int i=0; i<process.length; i++) {
+//                System.out.print(process[i]+" ");
+//            }
+//            System.out.println("");
 
             ProcessRunner proc = new ProcessRunner(process);                   
 

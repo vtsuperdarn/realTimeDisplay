@@ -46,10 +46,10 @@ public class Logger {
                     "-server", "-jar", jarLocation+separator+"rmiLogger.jar" };
             
             // Print the command
-            for (int i=0; i<process.length; i++) {
-                System.out.print(process[i]+" ");
-            }
-            System.out.println("");
+//            for (int i=0; i<process.length; i++) {
+//                System.out.print(process[i]+" ");
+//            }
+//            System.out.println("");
 
             ProcessRunner proc = new ProcessRunner(process);                   
 

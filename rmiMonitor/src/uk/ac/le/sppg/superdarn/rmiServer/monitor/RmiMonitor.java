@@ -3,7 +3,6 @@
  */
 package uk.ac.le.sppg.superdarn.rmiServer.monitor;
 
-import uk.ac.le.sppg.superdarn.rmiServer.monitor.*;
 import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;

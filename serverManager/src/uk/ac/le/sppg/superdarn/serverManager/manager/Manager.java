@@ -432,7 +432,8 @@ public class Manager {
             System.out.println(monitor.start(server));
             return 0;
         } catch( RemoteException e) {
-            System.out.println(e.toString());
+            e.printStackTrace();
+            System.err.println(e.getMessage());
             return 1;
         }
     }
