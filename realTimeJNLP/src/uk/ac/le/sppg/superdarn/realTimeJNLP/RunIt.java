@@ -36,11 +36,22 @@ public class RunIt {
     
     public static void main(String[] args) {
         try {
+        
            // Lookup the javax.jnlp.BasicService object
            BasicService bs = (BasicService)ServiceManager.lookup("javax.jnlp.BasicService");
-           URL url = bs.getCodeBase();           
+        System.out.println("");
+        System.out.println("1----------------------------------------");
+        System.out.println("");
+           URL url = bs.getCodeBase();
+           
+        System.out.println("");
+        System.out.println("2----------------------------------------");
+        System.out.println("");
 
             RunIt r = new RunIt();
+        System.out.println("");
+        System.out.println("3----------------------------------------");
+        System.out.println("");
             ProcessArgs app = new ProcessArgs(url, args, r.panel);
         }
         catch(UnavailableServiceException ue) {

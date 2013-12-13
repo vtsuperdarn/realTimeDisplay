@@ -14,6 +14,8 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
@@ -204,20 +206,29 @@ public class RmiServerBean extends JPanel {
             return;
         }
         
-        rmiServer = null;
-        server = "sd-work8.ece.vt.edu";
+//        rmiServer = null;
+//        server = "superdarn.ece.vt.edu";
+        java.net.URL serverURL = null;
+        try {
+            serverURL = new java.net.URL("http://"+server);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(RmiServerBean.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         try {
-            System.out.println("haha: trying to connect to rmiServer: "+server);
+            System.out.println("haha: trying to connect to rmiServer: "+serverURL.getHost());
 //            rmiServer = new RemoteData( new URL("http://"+server+":8080/dataServlet/rmiServer") );
 //            System.out.println("connected to rmiServer");
-            String[] rmiServerNames = Naming.list("//" + server);
+            String[] rmiServerNames = Naming.list("//" + serverURL.getHost());
+            System.out.println("Looking for "+radar);
             for(String serverName: rmiServerNames) {
               System.out.println(serverName);
-              Object obj = Naming.lookup("//198.82.148.148/Kapuskasing.rmiServer_1.0");
+//              Object obj = Naming.lookup("//superdarn.ece.vt.edu/Blackstone.rmiServer_1.0");
+              Object obj = Naming.lookup(serverName);
               System.out.println("Class name = " + obj.getClass().getName());
                 if ( serverName.contains("rmiServer") && serverName.contains(radar)) {
-                    rmiServer = (RmiServerInterface) Naming.lookup("//sd-software.ece.vt.edu:1099/Kapuskasing.rmiServer_1.0");
+//                    rmiServer = (RmiServerInterface) Naming.lookup("//superdarn.ece.vt.edu:1099/Blackstone.rmiServer_1.0");
+                    rmiServer = (RmiServerInterface) Naming.lookup(serverName);
                     break;
                 }
             }
@@ -489,7 +500,8 @@ public class RmiServerBean extends JPanel {
         try {
             System.out.println( "try to connect to "+server);
             //ArrayList<String> serverList = getRadarList();
-            java.net.URL radarURL = new java.net.URL(new java.net.URL(server), "radarList");
+            java.net.URL radarURL = new java.net.URL(new java.net.URL("http://"+server), "dataServer/radarList");
+            System.out.println( radarURL.toString() );
            ArrayList serverList = Radars.getRadarList(radarURL);
 //            System.out.println("got radar list "+serverList);
             // add the list to the radars shown in the combo-box.

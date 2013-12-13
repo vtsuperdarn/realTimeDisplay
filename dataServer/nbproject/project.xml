@@ -5,6 +5,7 @@
         <data xmlns="http://www.netbeans.org/ns/web-project/3">
             <name>dataServer</name>
             <minimum-ant-version>1.6</minimum-ant-version>
+            <explicit-platform explicit-source-supported="true"/>
             <web-module-libraries>
                 <library dirs="200">
                     <file>${libs.JNPL.classpath}</file>
@@ -102,7 +103,7 @@
                 </library>
                 <library dirs="200">
                     <file>${reference.realTimeJNLP.jar}</file>
-                    <path-in-war>lib</path-in-war>
+                    <path-in-war>/</path-in-war>
                 </library>
                 <library dirs="200">
                     <file>${reference.dataServerAPI.jar}</file>
@@ -110,6 +111,14 @@
                 </library>
                 <library dirs="200">
                     <file>${reference.realTimeControl.jar}</file>
+                    <path-in-war>/</path-in-war>
+                </library>
+                <library dirs="200">
+                    <file>${reference.fitDataViewers.jar}</file>
+                    <path-in-war>lib</path-in-war>
+                </library>
+                <library dirs="200">
+                    <file>${reference.fitDataBeans.jar}</file>
                     <path-in-war>lib</path-in-war>
                 </library>
             </web-module-additional-libraries>
@@ -171,6 +180,22 @@
             </reference>
             <reference>
                 <foreign-project>fitData</foreign-project>
+                <artifact-type>jar</artifact-type>
+                <script>build.xml</script>
+                <target>jar</target>
+                <clean-target>clean</clean-target>
+                <id>jar</id>
+            </reference>
+            <reference>
+                <foreign-project>fitDataBeans</foreign-project>
+                <artifact-type>jar</artifact-type>
+                <script>build.xml</script>
+                <target>jar</target>
+                <clean-target>clean</clean-target>
+                <id>jar</id>
+            </reference>
+            <reference>
+                <foreign-project>fitDataViewers</foreign-project>
                 <artifact-type>jar</artifact-type>
                 <script>build.xml</script>
                 <target>jar</target>

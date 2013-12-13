@@ -6,5 +6,6 @@
         <group>
             <file>file:/home/sebastien/Desktop/rtdisplay/serverManager/build.xml</file>
         </group>
+        <group name="rtDisplay"/>
     </open-files>
 </project-private>

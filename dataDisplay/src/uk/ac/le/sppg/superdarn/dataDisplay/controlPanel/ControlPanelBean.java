@@ -932,7 +932,7 @@ System.out.println("ControlPanelBean: endDate: "+endDate+" now: "+now);
         // TODO add your handling code here:
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new RmiServerBrowser("sd-work8.ece.vt.edu:8080").setVisible(true);
+                new RmiServerBrowser("superdarn.ece.vt.edu:8080").setVisible(true);
             }
         });
     }//GEN-LAST:event_openDataBrowser

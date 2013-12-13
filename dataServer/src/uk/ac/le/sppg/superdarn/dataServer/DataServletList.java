@@ -132,7 +132,6 @@ public class DataServletList extends GenericServlet {
             
 //            for( int i=0; i<rmiServerNames.length; i++ ){
             for(String rmiServerName: Naming.list("//localhost") ) {
-//              System.out.println("naming entry: "+rmiServerName);
                 if ( rmiServerName.matches(".*\\.rmiServer_"+RmiServerInterface.versionString)) {
 //              System.out.println("entry matches");
                     String[] bits = rmiServerName.split("/");

@@ -134,7 +134,6 @@ public class FitRemoteServlet extends GenericServlet implements FitRemote2 {
         try {
 //            String[] rmiServerNames = Naming.list("//localhost");
             for( String rmiServerName:Naming.list("//localhost")) {
-//              System.out.println("RMI server: "+rmiServerName);
                 if ( rmiServerName.endsWith(".rmiServer_"+RmiServerInterface.versionString)) {
                     try {
                         bindRegistrySite(rmiServerName);

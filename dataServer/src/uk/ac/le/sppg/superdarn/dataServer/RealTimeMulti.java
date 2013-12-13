@@ -41,6 +41,7 @@ public class RealTimeMulti extends HttpServlet {
 
         ArrayList<String> jnlpArguments = new ArrayList<String>();
         String serverUrl = "http://"+request.getServerName()+":"+String.valueOf(request.getServerPort());
+System.out.println("RealTimeMulti: "+serverUrl);
         String servletPath = request.getContextPath();
         
         // parse the URL arguments and generate the JNLP parameters
@@ -164,12 +165,14 @@ public class RealTimeMulti extends HttpServlet {
         writer.println("        <offline-allowed/>");
         writer.println("    </information>");
         writer.println("    <resources>");
-        writer.println("        <j2se version=\"1.5+\" href=\"http://java.sun.com/products/autodl/j2se\"/>");
+        writer.println("        <j2se version=\"1.6+\" href=\"http://java.sun.com/products/autodl/j2se\"/>");
         writer.println("        <jar href=\"realTimeJNLP.jar\" main=\"true\" download=\"eager\"/>");
-        writer.println("        <jar href=\"lib/realTimeControl.jar\" download=\"eager\"/>");
+        writer.println("        <jar href=\"realTimeControl.jar\" download=\"eager\"/>");
         writer.println("        <jar href=\"lib/dataDisplay.jar\" download=\"eager\"/>");
         writer.println("        <jar href=\"lib/colour.jar\" download=\"eager\"/>");
         writer.println("        <jar href=\"lib/fitData.jar\" download=\"eager\"/>");
+        writer.println("        <jar href=\"lib/fitDataViewers.jar\" download=\"eager\"/>");
+        writer.println("        <jar href=\"lib/fitDataBeans.jar\" download=\"eager\"/>");
         writer.println("        <jar href=\"lib/worldMap.jar\" download=\"eager\"/>");
         writer.println("        <jar href=\"lib/coords.jar\" download=\"eager\"/>");
         writer.println("        <jar href=\"lib/display.jar\" download=\"eager\"/>");
