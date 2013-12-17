@@ -486,7 +486,7 @@ public class FanWindow extends JFrame
         // but only turn those checkboxes on for which we have data
         radarChooserPanel = new JPanel();
         String[] incRadars = {"INV", "RKN", "KSR", "KOD", "PGR", "SAS", "KAP", "GBR", "STO",
-            "ADW", "ADE", "CVW", "CVE", "FHW", "FHE", "BKS", "WAL", "AZW", "AZE"};
+            "ADW", "ADE", "CVW", "CVE", "FHW", "FHE", "BKS", "WAL", "AZW", "AZE", "CLY"};
         radarChooserBoxes = new JCheckBox[incRadars.length];
         for (int i=0; i<incRadars.length; i++) {
             radarChooserBoxes[i] = new JCheckBox(incRadars[i], false);
@@ -515,9 +515,10 @@ public class FanWindow extends JFrame
             panel03.add(radarChooserBoxes[6]);
             panel03.add(radarChooserBoxes[7]);
             radarChooserPanel.add(panel03);
-            // STO
+            // STO & CLY
             JPanel panel04 = new JPanel();
             panel04.add(radarChooserBoxes[8]);
+            panel04.add(radarChooserBoxes[19]);
             radarChooserPanel.add(panel04);
             // ADW & ADE
             JPanel panel10 = new JPanel();
